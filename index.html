@@ -5,93 +5,190 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>D VNB Srivani — Resume</title>
   <style>
-    :root{--accent:#0b76ef;--muted:#6b7280;--bg:#f7f9fc;--card:#ffffff;--maxw:900px}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;line-height:1.45;color:#111827;background:var(--bg);padding:32px}
-    .container{max-width:var(--maxw);margin:0 auto}
-    .card{background:var(--card);border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);overflow:hidden;display:grid;grid-template-columns:1fr 2fr}
-    header{padding:28px 28px;border-bottom:1px solid #eef2f7;display:flex;align-items:center;gap:18px}
-    .avatar{width:84px;height:84px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6dd5ed);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:28px}
-    .contact{font-size:14px;color:var(--muted)}
-    .name{font-size:20px;font-weight:700;margin:0}
-    .subtitle{font-size:13px;color:var(--muted);margin-top:4px}
+    :root {
+      --accent: #4f46e5;
+      --accent-light: #eef2ff;
+      --muted: #6b7280;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --maxw: 1000px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      background: var(--bg);
+      margin: 0;
+    }
+    /* Navbar */
+    nav {
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      color: white;
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .logo { font-weight: 700; font-size: 18px; }
+    nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: 20px; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #dbeafe; }
 
-    .main{display:flex;gap:24px;padding:24px}
-    .left{padding:8px 0;border-right:1px dashed #eef2f7;width:310px}
-    .right{padding:8px 0;flex:1}
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 32px; }
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.1);
+      overflow: hidden;
+      border: 2px solid var(--accent-light);
+      margin-bottom: 40px;
+    }
+    header {
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      color: white;
+      padding: 36px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: white;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .name { font-size: 22px; font-weight: 700; margin: 0; }
+    .contact, .subtitle { font-size: 14px; margin-top: 6px; }
 
-    h3{margin:0 0 8px 0;font-size:14px;color:#0f172a}
-    .section{margin-bottom:18px}
-    .muted{color:var(--muted);font-size:13px}
+    .main { display: flex; gap: 24px; padding: 24px; }
+    .left { flex: 1; padding-right: 16px; border-right: 1px solid #e5e7eb; }
+    .right { flex: 2; padding-left: 16px; }
 
-    ul{margin:6px 0 0 0;padding:0;list-style:none}
-    li{margin:8px 0;font-size:14px}
+    h3 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent-light);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+    .section { margin-bottom: 24px; }
+    .muted { color: var(--muted); font-size: 13px; }
 
-    .skill-badge{display:inline-block;background:#f1f5f9;padding:6px 8px;border-radius:999px;font-size:13px;margin:6px 6px 0 0}
+    ul { margin: 6px 0 0 18px; padding: 0; }
+    li { margin: 6px 0; font-size: 14px; }
 
-    .edu-item,.job-item{margin-bottom:10px}
-    .meta{font-size:13px;color:var(--muted)}
+    .skill-badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      margin: 6px 6px 0 0;
+      transition: 0.3s;
+    }
+    .skill-badge:hover { background: var(--accent); color: white; }
 
-    .project-desc{font-size:14px;margin-top:6px}
-    .certs{display:flex;flex-wrap:wrap}
-    .cert{background:#fff;border:1px solid #eef2f7;padding:8px 10px;border-radius:6px;margin:6px; font-size:13px}
+    .certs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cert {
+      background: #f1f5f9;
+      border-left: 4px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      flex: 1 1 calc(50% - 16px);
+    }
 
-    footer{padding:18px 28px;border-top:1px solid #eef2f7;font-size:13px;color:var(--muted);display:flex;justify-content:space-between}
+    .project-desc { font-size: 14px; margin-top: 6px; }
+
+    footer {
+      background: var(--accent-light);
+      padding: 16px 28px;
+      font-size: 13px;
+      color: #374151;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    section[id] { scroll-margin-top: 70px; }
 
     /* Responsive */
-    @media (max-width:800px){.card{grid-template-columns:1fr}.left{width:auto;border-right:none;border-bottom:1px dashed #eef2f7;padding-bottom:16px}.main{flex-direction:column}}
+    @media (max-width: 800px) {
+      nav ul { flex-direction: column; gap: 10px; }
+      .main { flex-direction: column; }
+      .left { border-right: none; border-bottom: 1px solid #e5e7eb; padding-bottom: 16px; }
+      .right { padding-left: 0; }
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <nav>
+    <div class="logo">My Resume</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#internship">Internship</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
-    <div class="card">
-      <div style="grid-column:1/-1">
-        <header>
-          <div class="avatar">DV</div>
-          <div style="flex:1">
-            <p class="name">Divakarla Venkata Naga Bhanu Srivani</p>
-            <p class="contact">Phone: 9392357685 · Email: divakarlasrivani@gmail.com · Sujatha Nagar, Visakhapatnam, Andhra Pradesh</p>
-            <p class="subtitle">Bachelor of Computer Applications (Pursuing) — MERN Stack Intern — Web development & programming</p>
-          </div>
-        </header>
-      </div>
+    <div class="card" id="about">
+      <header>
+        <div class="avatar">DV</div>
+        <div>
+          <p class="name">Divakarla Venkata Naga Bhanu Srivani</p>
+          <p class="contact">📞 9392357685 · ✉️ divakarlasrivani@gmail.com · 📍 Sujatha Nagar, Visakhapatnam</p>
+          <p class="subtitle">🎓 Bachelor of Computer Applications (Pursuing) · 💻 MERN Stack Intern · Web Development Enthusiast</p>
+        </div>
+      </header>
 
-      <div class="main" style="grid-column:1/-1">
+      <div class="main">
         <aside class="left">
-          <div class="section">
+          <div class="section" id="education">
             <h3>Education</h3>
-            <div class="edu-item">
-              <strong>Bachelor of Computer Applications — Aditya Degree College</strong>
-              <div class="meta">Pursuing (5th sem) · Overall CGPA: 8.35</div>
-            </div>
-            <div class="edu-item">
-              <strong>Intermediate — Sri Chaitanya Junior College</strong>
-              <div class="meta">CGPA: 9.62</div>
-            </div>
-            <div class="edu-item">
-              <strong>10th Grade — Sri Shirdi Sai Oxford School</strong>
-              <div class="meta">CGPA: 9.7</div>
-            </div>
+            <p><strong>BCA — Aditya Degree College</strong><br><span class="muted">Pursuing (5th sem), CGPA: 8.35</span></p>
+            <p><strong>Intermediate — Sri Chaitanya Junior College</strong><br><span class="muted">CGPA: 9.62</span></p>
+            <p><strong>10th — Sri Shirdi Sai Oxford School</strong><br><span class="muted">CGPA: 9.7</span></p>
           </div>
 
-          <div class="section">
+          <div class="section" id="skills">
             <h3>Technical Skills</h3>
-            <div class="muted">Programming, Databases & Web</div>
-            <div style="margin-top:8px">
-              <span class="skill-badge">C</span>
-              <span class="skill-badge">Java (Basics)</span>
-              <span class="skill-badge">Python</span>
-              <span class="skill-badge">DBMS</span>
-              <span class="skill-badge">HTML</span>
-            </div>
+            <span class="skill-badge">C</span>
+            <span class="skill-badge">Java (Basics)</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">DBMS</span>
+            <span class="skill-badge">HTML</span>
           </div>
 
-          <div class="section">
+          <div class="section" id="certifications">
             <h3>Certifications</h3>
             <div class="certs">
               <div class="cert">Mepro</div>
               <div class="cert">Cisco C</div>
-              <div class="cert">Cisco Python Essentials 1 &amp; 2</div>
+              <div class="cert">Cisco Python Essentials 1 & 2</div>
               <div class="cert">Hackathon (HTML)</div>
               <div class="cert">MERN Stack</div>
               <div class="cert">HTML5</div>
@@ -110,48 +207,44 @@
           <div class="section">
             <h3>Strengths</h3>
             <ul>
-              <li>Confident and proactive in learning new concepts</li>
-              <li>Optimistic with active participation in teamwork and discussions</li>
+              <li>Confident and proactive learner</li>
+              <li>Optimistic & collaborative team player</li>
             </ul>
           </div>
         </aside>
 
         <section class="right">
-          <div class="section">
+          <div class="section" id="objective">
             <h3>Career Objective</h3>
             <p class="project-desc">To secure a challenging position in a reputable organization where I can utilize my skills, contribute to company growth, and continuously enhance my professional development.</p>
           </div>
 
-          <div class="section">
+          <div class="section" id="projects">
             <h3>Project</h3>
-            <strong>Community Service Project — Healthcare Awareness</strong>
+            <p><strong>Community Service Project — Healthcare Awareness</strong></p>
             <p class="project-desc">Conducted awareness sessions on healthcare practices and preventive measures in the community. Enhanced communication, teamwork, and leadership skills through public engagement.</p>
           </div>
 
-          <div class="section">
+          <div class="section" id="internship">
             <h3>Internship</h3>
-            <div class="job-item">
-              <strong>MERN Stack Intern — Adhoc Network Tech</strong>
-              <div class="meta">May 9, 2025 — July 5, 2025 (Short-term internship)</div>
-              <ul>
-                <li>Worked with MongoDB, Express.js, React.js and Node.js on front-end and back-end tasks.</li>
-                <li>Developed RESTful APIs and managed data storage with MongoDB.</li>
-                <li>Participated in final project evaluation and viva on July 19, 2025 demonstrating project functionality.</li>
-              </ul>
-            </div>
+            <p><strong>MERN Stack Intern — Adhoc Network Tech</strong><br><span class="muted">May 2025 – July 2025</span></p>
+            <ul>
+              <li>Worked with MongoDB, Express.js, React.js and Node.js on front-end and back-end tasks.</li>
+              <li>Developed RESTful APIs and managed data storage with MongoDB.</li>
+              <li>Presented final project in viva on July 19, 2025 demonstrating functionality.</li>
+            </ul>
           </div>
 
-          <div class="section">
-            <h3>Declaration</h3>
+          <div class="section" id="contact">
+            <h3>Contact & Declaration</h3>
             <p class="project-desc">I hereby declare that the above information is true and correct to the best of my knowledge and belief.</p>
           </div>
-
         </section>
       </div>
 
       <footer>
-        <div>Place: Visakhapatnam</div>
-        <div>D VNB SRIVANI</div>
+        <div>📍 Visakhapatnam</div>
+        <div><strong>D VNB SRIVANI</strong></div>
       </footer>
     </div>
   </div>
